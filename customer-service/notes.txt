@@ -1,0 +1,4 @@
+CONS OF MONOLITHICS 
+	Monolithics apps are hard to deploy, small change another round of SDLC
+	Monolithics apps are hard to SCALE
+
