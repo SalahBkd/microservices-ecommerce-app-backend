@@ -1,0 +1,56 @@
+Microservices Core Concepts
+	--pros: scalability, distribution 
+	--cons: latency, gridlock 
+	
+	--handling cons:
+		with strong timeouts
+		global distiribution of all service offerings
+		scaling of individual services under load 
+		Circuit Breaker pattern 
+		
+		
+	--Bounded context 
+		how to size your microservices ? leverage Domain-Driven Design 
+		concept:
+			investigate working system 
+			determine the domains 
+			break services up accordingly 
+			
+		example: 
+			customer doman & user domain in a e-commerce app 
+			every time user domain is called it calls customer domain, argument to set them in a single bounded context 
+			this reduces distribution tax (latency)
+			
+		strong contracts and well-defined boundaries allow for self-discovery
+	
+	--data domains as a service boundary 
+		transactional boundaries: 
+			cannot eliminate transactions completely 
+			no distributed transactions 
+			
+		the hardest parts in microservices architectures is building the data service 
+			monolithic database into smaller individual systems
+			
+	--No ACID, only BASE
+		base: eventual consistency model 
+		if you really need to keep ACID transactions then model your services boundaries to do so, like in a banking system
+		if you don't need a system that is based on ACID then use BASE 
+		aim for eventual consistency in as many places as possible it will improve system health as a whole 
+		
+	--API layer 
+		no transformation or logic execution in this layer (warning)
+		it's a pure proxy 
+		
+Microservices Advanced Concepts
+	
+	
+		
+	
+		
+		
+			
+		
+			
+			
+	
+	

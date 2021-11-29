@@ -10,3 +10,25 @@
 #          uri : http://localhost:8082/
 #          predicates:
 #            - Path=/products/**
+
+server:
+  port: 8888
+# Configuration CORS ###
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000/"
+            allowedMethods:
+              - GET
+
+
+
+
+
