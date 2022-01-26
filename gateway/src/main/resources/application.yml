@@ -21,14 +21,34 @@ spring:
     discovery:
       enabled: true
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000/"
+            allowedOrigins: "http://localhost:3000"
+            allowedHeaders: "*"
             allowedMethods:
               - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
 
-
+      routes:
+        - id : r1
+          uri : http://localhost:8081/
+          predicates:
+            - Path=/customers/**
+        - id : r2
+          uri : http://localhost:8082/
+          predicates:
+            - Path=/products/**
+        - id: r3
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/generateBill/**
+            - Path=/fullBill/**
 
 
 
